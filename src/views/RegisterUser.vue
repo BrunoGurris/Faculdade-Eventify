@@ -8,22 +8,22 @@
             </div>
             <div class="row mt-5 px-5">
                 <div class="col-12 mb-3">
-                    <input type="text" class="form-control shadow-sm" placeholder="Nome completo">
+                    <input v-model="add.name" type="text" class="form-control shadow-sm" placeholder="Nome completo">
                 </div>
                 <div class="col-12 mb-3">
-                    <input type="text" class="form-control shadow-sm" placeholder="Nome usuário">
+                    <input v-model="add.username" type="text" class="form-control shadow-sm" placeholder="Nome usuário">
                 </div>
                 <div class="col-12 mb-3">
-                    <input type="password" class="form-control shadow-sm" placeholder="Senha">
+                    <input v-model="add.password" type="password" class="form-control shadow-sm" placeholder="Senha">
                 </div>
                 <div class="col-12 mb-3">
-                    <input type="password" class="form-control shadow-sm" placeholder="Confirmar senha">
+                    <input v-model="add.confirm_password" type="password" class="form-control shadow-sm" placeholder="Confirmar senha">
                 </div>
                 <div class="col-12 mb-3">
-                    <input type="text" class="form-control shadow-sm" placeholder="E-mail">
+                    <input v-model="add.email" type="text" class="form-control shadow-sm" placeholder="E-mail">
                 </div>
                 <div class="col-12 mb-3">
-                    <input type="text" class="form-control shadow-sm" placeholder="Confirmar e-mail">
+                    <input v-model="add.confirm_email" type="text" class="form-control shadow-sm" placeholder="Confirmar e-mail">
                 </div>
                 <div class="col-12 mb-3 d-flex justify-content-between">
                     <button id="btnSave" type="button" class="btn shadow-sm">SALVAR</button>
@@ -38,7 +38,14 @@
 
 <script>
 export default {
-
+    add: {
+        name: '',
+        username: '',
+        password: '',
+        confirm_password: '',
+        email: '',
+        confirm_email: ''
+    }
 }
 </script>
 
