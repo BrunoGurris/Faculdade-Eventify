@@ -25,7 +25,7 @@
                 <div class="col-12 mb-3">
                     <input v-model="add.confirm_email" type="text" class="form-control shadow-sm" placeholder="Confirmar e-mail">
                 </div>
-                <div class="col-12 mb-3 d-flex justify-content-between">
+                <div class="col-12 mb-3 d-flex justify-content-evenly">
                     <button id="btnSave" type="button" class="btn shadow-sm">SALVAR</button>
                     <button id="btnReturn" type="button" class="btn shadow-sm">VOLTAR</button>
                 </div>
@@ -38,13 +38,19 @@
 
 <script>
 export default {
-    add: {
-        name: '',
-        username: '',
-        password: '',
-        confirm_password: '',
-        email: '',
-        confirm_email: ''
+    name: '',
+
+    data() {
+        return {
+            add: {
+                name: '',
+                username: '',
+                password: '',
+                confirm_password: '',
+                email: '',
+                confirm_email: ''
+            }
+        }
     }
 }
 </script>
