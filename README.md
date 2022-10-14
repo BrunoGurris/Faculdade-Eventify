@@ -1,4 +1,4 @@
-# eventfy
+# Eventify
 
 ## Project setup
 ```
