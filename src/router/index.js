@@ -5,6 +5,7 @@ import Template from '../components/Template'
 import RegisterUser from '../views/RegisterUser'
 import Login from '../views/Login'
 import Home from '../views/Home'
+import MyEvents from '../views/MyEvents'
 
 Vue.use(VueRouter)
 
@@ -20,8 +21,8 @@ const routes = [
             },
             {
                 path: 'events',
-                name: 'Home',
-                component: Home
+                name: 'MyEvents',
+                component: MyEvents
             },
             // {
             //     path: 'dashboard',
