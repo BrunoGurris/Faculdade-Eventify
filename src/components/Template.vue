@@ -7,14 +7,20 @@
                     <h6 class="text-white m-0">Seu site de eventos</h6>
                 </div>
 
-                <div class="d-flex align-items-center mt-2">
+                <div class="d-flex align-items-center mt-2 w-25">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Buscar evento...">
-                        <button class="btn bg-white" type="button">aaa</button>
+                        <button class="btn bg-white" type="button">
+                            <v-icon>{{ icons.mdiMagnify }}</v-icon>
+                        </button>
                     </div>
                 </div>
 
-                <div>asdassd</div>
+                <div>
+                    <div id="user-header-template" class="rounded-circle mt-2 me-5 text-center">
+                        <v-icon size="30" color="white" class="mt-3">{{ icons.mdiAccountOutline }}</v-icon>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -38,6 +44,8 @@
 </template>
 
 <script>
+import { mdiMagnify, mdiAccountOutline  } from '@mdi/js';
+
 export default {
     name: 'Template',
 
@@ -54,8 +62,12 @@ export default {
                     route: '/events',
                     label: 'Meus Eventos'
                 },
+            ],
 
-            ]
+            icons: {
+                mdiMagnify: mdiMagnify,
+                mdiAccountOutline: mdiAccountOutline
+            }
         }
     },
 
@@ -120,5 +132,18 @@ export default {
 
 .active-item-menu-template {
     background: #086F7D;
+}
+
+#user-header-template{
+    width: 60px;
+    height: 60px;
+
+    background: #086F7D;
+}
+
+#user-header-template:hover{
+    cursor: pointer;
+    background: #06555f;
+    transition: 0.5s;
 }
 </style>
