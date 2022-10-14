@@ -35,7 +35,7 @@
                         {{ item_menu.label }}
                     </div>
                 </div>
-                <div id="body-template" class="w-100 h-100">
+                <div id="body-template" class="w-100 h-100 p-4">
                     <router-view></router-view>
                 </div>
             </div>
@@ -110,6 +110,9 @@ export default {
 
 #body-template{
     margin-top: 80px;
+    overflow: auto;
+
+    margin-left: 300px;
 }
 
 .item-menu-template {

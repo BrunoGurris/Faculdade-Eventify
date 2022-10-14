@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Discussão sobre filmes",
+        "place": "Shopping Cidade",
+        "address": "Av. Itavuvu, 50, São Guilherme - Sorocaba/SP",
+        "image": "https://agendasorocaba.com.br/wp-content/uploads/2019/02/Shopping-Cidade-Sorocaba.jpg",
+        "description": "Em linguística, a noção de texto é ampla e ainda aberta a uma definição mais precisa. Grosso modo, pode ser entendido como manifestação linguística das ideias de um autor, que serão interpretadas pelo leitor de acordo com seus conhecimentos linguísticos e culturais. Seu tamanho é variável."
+    },
+    {
+        "name": "Encontro de Carros de Luxo",
+        "place": "Posto Shell",
+        "address": "Av. Ipanema, 11, Nova Sorocaba - Sorocaba/SP",
+        "image": "https://c8y3s8d4.stackpathcdn.com/wp-content/uploads/2019/10/bomba-gasolina-shell-posto-orlando.jpg",
+        "description": "Em linguística, a noção de texto é ampla e ainda aberta a uma definição mais precisa. Grosso modo, pode ser entendido como manifestação linguística das ideias de um autor, que serão interpretadas pelo leitor de acordo com seus conhecimentos linguísticos e culturais. Seu tamanho é variável."
+    },
+    {
+        "name": "Partiu comer coxinha",
+        "place": "Padaria Real",
+        "address": "Av. Eng. Carlos, 954, Boa Vista - Sorocaba/SP",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/0a/69/dd/0f/padaria-real-proximo.jpg",
+        "description": "Em linguística, a noção de texto é ampla e ainda aberta a uma definição mais precisa. Grosso modo, pode ser entendido como manifestação linguística das ideias de um autor, que serão interpretadas pelo leitor de acordo com seus conhecimentos linguísticos e culturais. Seu tamanho é variável."
+    },
+    {
+        "name": "Torcida Organizada",
+        "place": "Padaria Real",
+        "address": "Av. Francisco Matarazzo, 1705, Agua branca - São Paulo/SP",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Imagens_da_Cidade_de_S%C3%A3o_Paulo_e_Zool%C3%B3gico_da_Capital_Paulista._%2847480340301%29.jpg/640px-Imagens_da_Cidade_de_S%C3%A3o_Paulo_e_Zool%C3%B3gico_da_Capital_Paulista._%2847480340301%29.jpg",
+        "description": "Em linguística, a noção de texto é ampla e ainda aberta a uma definição mais precisa. Grosso modo, pode ser entendido como manifestação linguística das ideias de um autor, que serão interpretadas pelo leitor de acordo com seus conhecimentos linguísticos e culturais. Seu tamanho é variável."
+    },
+    {
+        "name": "Viagem Aleatória",
+        "place": "Padaria Real",
+        "address": "Rod. Hélio Smidt, s/nº - Aeroporto, Guarulhos/SP",
+        "image": "https://www.istoedinheiro.com.br/wp-content/uploads/sites/17/2017/12/aeroporto-de-guarulhos.jpg",
+        "description": "Em linguística, a noção de texto é ampla e ainda aberta a uma definição mais precisa. Grosso modo, pode ser entendido como manifestação linguística das ideias de um autor, que serão interpretadas pelo leitor de acordo com seus conhecimentos linguísticos e culturais. Seu tamanho é variável."
+    }
+]
