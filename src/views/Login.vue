@@ -12,17 +12,30 @@
 
                     <div class="row">
                         <div class="col-9 mb-3 mx-auto mt-4">
-                            <input type="text" class="form-control shadow-sm" placeholder="Usuário">
+                            <InputText
+                                placeholder="Usuário"
+                                @updateValue="user = $event"
+                            />
                         </div>
                         <div class="col-9 mb-3 mx-auto mt-1">
-                            <input v-model="email" type="password" class="form-control shadow-sm" placeholder="Senha">
+                            <InputPassword 
+                                placeholder="Senha"
+                                @updateValue="password = $event"    
+                            />
                         </div>
                         <div class="col-9 d-flex mx-auto justify-content-between">
-                            <button id="btnLogin" class="btn">ENTRAR</button>
-                            <button id="btnRegister" class="btn">CADASTRAR</button>
+                            <ButtonDark
+                                text="ENTRAR"
+                                height="50px"
+                            />
+                            <ButtonLight 
+                                text="CADASTRAR" 
+                                height="50px"
+                            />
                         </div>
                         <div class="col-9 mx-auto mt-4 pb-3">
                             <p class="text-center forgot">Esqueceu a senha ?</p>
+                            
                         </div>
                     </div>
                 </div>
@@ -32,14 +45,24 @@
 </template>
 
 <script>
-export default {
-    name: '',
+import ButtonLight from '../components/ButtonLight'
+import ButtonDark from '../components/ButtonDark'
+import InputText from '../components/InputText'
+import InputPassword from '../components/InputPassword'
 
+export default {
     data() {
         return {
-            email: '',
+            user: '',
             password: '',
         }
+    },
+
+    components: {
+        ButtonLight,
+        ButtonDark,
+        InputText,
+        InputPassword
     }
 }
 </script>
@@ -52,26 +75,6 @@ export default {
 
 #left{
     background-image: linear-gradient(#131E2F, #01A5B1);
-}
-
-#btnLogin{
-    width: 120px;
-    height: 50px;
-
-    color: white;
-    font-weight: bold;
-
-    background: #131E2F;
-}
-
-#btnRegister{
-    width: 120px;
-    height: 50px;
-
-    color: white;
-    font-weight: bold;
-
-    background: #01A5B1;
 }
 
 .forgot {

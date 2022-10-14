@@ -1,16 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import RegisterUser from '../views/RegisterUser'
 import Login from '../views/Login'
+import Teste from '../components/HelloWorld'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: Home
+        component: Teste,
+        children: [
+            {
+                path: '',
+                name: 'Login',
+                component: Login
+            },
+            // {
+            //     path: 'dashboard',
+            //     beforeEnter: middleware.isClient,
+            //     component: resolve => require(['./components/pages/dashboard/Dashboard.vue'], resolve),
+            //     meta: {
+            //         title: 'Dashboard',
+            //         breadcrumb: [
+            //             {
+            //                 html:'<i class="ti-home"></i> Dashboard',
+            //                 href: '/dashboard',
+            //             }
+            //         ]
+            //     }
+            // },
+        ]
     },
     {
         path: '/login',
