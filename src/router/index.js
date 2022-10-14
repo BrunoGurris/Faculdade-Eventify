@@ -2,14 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import RegisterUser from '../views/RegisterUser'
 import Login from '../views/Login'
-import Teste from '../components/HelloWorld'
+import Template from '../components/Template'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        component: Teste,
+        component: Template,
         children: [
             {
                 path: '',
