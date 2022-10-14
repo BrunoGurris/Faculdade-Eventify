@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Template from '../components/Template'
+
 import RegisterUser from '../views/RegisterUser'
 import Login from '../views/Login'
-import Template from '../components/Template'
+import Home from '../views/Home'
 
 Vue.use(VueRouter)
 
@@ -13,8 +15,13 @@ const routes = [
         children: [
             {
                 path: '',
-                name: 'Login',
-                component: Login
+                name: 'Home',
+                component: Home
+            },
+            {
+                path: 'events',
+                name: 'Home',
+                component: Home
             },
             // {
             //     path: 'dashboard',
