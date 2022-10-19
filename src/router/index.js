@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import middleware from '@/services/middleware'
 import Template from '../components/Template'
 
 import RegisterUser from '../views/RegisterUser'
@@ -13,6 +14,7 @@ const routes = [
     {
         path: '/',
         component: Template,
+        beforeEnter: middleware.auth,
         children: [
             {
                 path: '',

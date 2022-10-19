@@ -27,6 +27,7 @@
                         </div>
                         <div class="col-9 d-flex mx-auto justify-content-between">
                             <button @click="login()" ref="btnLogin" type="button" class="btn btn-primary">Entrar</button>
+                            <button type="button" class="btn btn-dark">Cadastrar</button>
                         </div>
                         <div class="col-9 mx-auto mt-4 pb-3">
                             <p class="text-center forgot">Esqueceu a senha ?</p>    
@@ -39,8 +40,6 @@
 </template>
 
 <script>
-// import ButtonLight from '../components/ButtonLight'
-// import ButtonDark from '../components/ButtonDark'
 import InputText from '../components/InputText'
 import InputPassword from '../components/InputPassword'
 import { mdiAccount, mdiLock  } from '@mdi/js';
@@ -59,8 +58,6 @@ export default {
     },
 
     components: {
-        // ButtonLight,
-        // ButtonDark,
         InputText,
         InputPassword
     },
@@ -78,6 +75,7 @@ export default {
             .then((response) => {
                 localStorage.setItem('_token', response.data.token)
                 this.$toastr.s('Logado com sucesso!')
+                this.$router.push('/');
             })
             .catch((error) => {
                 this.$toastr.e(error.response.data.message)
