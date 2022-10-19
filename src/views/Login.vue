@@ -13,12 +13,14 @@
                     <div class="row">
                         <div class="col-9 mb-3 mx-auto mt-4">
                             <InputText
+                                :icon="icons.mdiAccount"
                                 placeholder="Usuário"
                                 @updateValue="user = $event"
                             />
                         </div>
                         <div class="col-9 mb-3 mx-auto mt-1">
                             <InputPassword 
+                                :icon="icons.mdiLock"
                                 placeholder="Senha"
                                 @updateValue="password = $event"    
                             />
@@ -34,8 +36,7 @@
                             />
                         </div>
                         <div class="col-9 mx-auto mt-4 pb-3">
-                            <p class="text-center forgot">Esqueceu a senha ?</p>
-                            
+                            <p class="text-center forgot">Esqueceu a senha ?</p>    
                         </div>
                     </div>
                 </div>
@@ -49,12 +50,18 @@ import ButtonLight from '../components/ButtonLight'
 import ButtonDark from '../components/ButtonDark'
 import InputText from '../components/InputText'
 import InputPassword from '../components/InputPassword'
+import { mdiAccount, mdiLock  } from '@mdi/js';
 
 export default {
     data() {
         return {
             user: '',
             password: '',
+
+            icons: {
+                mdiAccount : mdiAccount,
+                mdiLock: mdiLock
+            }
         }
     },
 
@@ -63,6 +70,12 @@ export default {
         ButtonDark,
         InputText,
         InputPassword
+    },
+
+    methods: {
+        login() {
+            
+        }
     }
 }
 </script>

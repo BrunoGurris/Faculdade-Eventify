@@ -1,13 +1,17 @@
 <template>
     <div class="input-group" :class="className">
-        <span class="input-group-text">@</span>
-        <input v-model="value" type="text" class="form-control shadow-sm" :placeholder="placeholder">
+        <span class="input-group-text">
+            <svg style="width:20px; height:20px">
+                <path :d="icon" />
+            </svg>
+        </span>
+        <input v-model="value" type="text" class="form-control" :placeholder="placeholder">
     </div>
 </template>
 
 <script>
 export default {
-    props: ['placeholder', 'className'],
+    props: ['placeholder', 'className', 'icon'],
 
     data() {
         return {
