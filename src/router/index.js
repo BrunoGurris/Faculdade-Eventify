@@ -4,9 +4,9 @@ import middleware from '@/services/middleware'
 import Template from '../components/Template'
 
 import RegisterUser from '../views/RegisterUser'
-import Login from '../views/Login'
+import Login from '../views/login/Login'
 import Home from '../views/Home'
-import MyEvents from '../views/MyEvents'
+import MyEvents from '../views/myEvents/MyEvents'
 
 Vue.use(VueRouter)
 
@@ -19,12 +19,14 @@ const routes = [
             {
                 path: '',
                 name: 'Home',
-                component: Home
+                component: Home,
+                meta: { title: 'Eventify - Todos Eventos' }
             },
             {
                 path: 'events',
                 name: 'MyEvents',
-                component: MyEvents
+                component: MyEvents,
+                meta: { title: 'Eventify - Meus Eventos' }
             },
             // {
             //     path: 'dashboard',
@@ -45,12 +47,12 @@ const routes = [
     {
         path: '/login',
         name: 'Login',
-        component: Login
+        component: Login,
     },
     {
         path: '/register',
         name: 'RegisterUser',
-        component: RegisterUser
+        component: RegisterUser,
     }
 ]
 

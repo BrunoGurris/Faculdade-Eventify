@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import InputText from '../components/InputText'
-import InputPassword from '../components/InputPassword'
+import InputText from '../../components/InputText'
+import InputPassword from '../../components/InputPassword'
 import { mdiAccount, mdiLock  } from '@mdi/js';
 
 export default {
