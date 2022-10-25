@@ -19,7 +19,6 @@
 
         size="80"
         color="grey"
-        src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
       ></v-list-item-avatar>
       
     </v-list-item>

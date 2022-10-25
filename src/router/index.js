@@ -30,7 +30,7 @@ const routes = [
                 meta: { title: 'Eventify - Meus Eventos' }
             },
             {
-                path: '/anevent',
+                path: 'anevent',
                 name: 'AnEvent',
                 component: AnEvent,
             },
