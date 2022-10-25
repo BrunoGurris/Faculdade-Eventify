@@ -8,7 +8,10 @@
                 <p class="card-text mt-3"><i>{{ event.address }}</i></p>
             </div>
             <div class="card-footer text-right">
-                <button type="button" class="btn btn-primary">Participar</button>
+                <if>
+                    <button type="button" class="btn btn-primary">Participar</button>
+                </if>
+                
             </div>
         </div>
     </div>

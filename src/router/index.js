@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import middleware from '@/services/middleware'
+//import middleware from '@/services/middleware'
 import Template from '../components/Template'
 
 import RegisterUser from '../views/RegisterUser'
 import Login from '../views/login/Login'
 import Home from '../views/Home'
 import MyEvents from '../views/myEvents/MyEvents'
+import AnEvent from '../views/myEvents/AnEvent'
 
 Vue.use(VueRouter)
 
@@ -14,7 +15,7 @@ const routes = [
     {
         path: '/',
         component: Template,
-        beforeEnter: middleware.auth,
+        //beforeEnter: middleware.auth,
         children: [
             {
                 path: '',
@@ -28,20 +29,12 @@ const routes = [
                 component: MyEvents,
                 meta: { title: 'Eventify - Meus Eventos' }
             },
-            // {
-            //     path: 'dashboard',
-            //     beforeEnter: middleware.isClient,
-            //     component: resolve => require(['./components/pages/dashboard/Dashboard.vue'], resolve),
-            //     meta: {
-            //         title: 'Dashboard',
-            //         breadcrumb: [
-            //             {
-            //                 html:'<i class="ti-home"></i> Dashboard',
-            //                 href: '/dashboard',
-            //             }
-            //         ]
-            //     }
-            // },
+            {
+                path: '/anevent',
+                name: 'AnEvent',
+                component: AnEvent,
+            },
+            
         ]
     },
     {
@@ -53,7 +46,9 @@ const routes = [
         path: '/register',
         name: 'RegisterUser',
         component: RegisterUser,
-    }
+    },
+    
+
 ]
 
 const router = new VueRouter({
