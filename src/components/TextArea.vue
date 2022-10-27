@@ -5,7 +5,7 @@
                 <path :d="icon" />
             </svg>
         </span>
-        <input v-model="value" type="password" class="form-control" :placeholder="placeholder">
+        <textarea v-model="value" class="form-control" rows="5" :placeholder="placeholder" style="resize: none"></textarea>
     </div>
 </template>
 

@@ -1,23 +1,31 @@
 <template>
     <div class="input-group" :class="className">
-        <span class="input-group-text">@</span>
-        <input v-model="value" type="text" class="form-control shadow-sm" :placeholder="placeholder">
+        <span class="input-group-text">
+            <svg style="width:24px; height:24px">
+                <path :d="icon" />
+            </svg>
+        </span>
+        <input v-model="valueComponent" v-mask="mask" type="text" class="form-control" :placeholder="placeholder" :disabled="disabled">
     </div>
 </template>
 
 <script>
 export default {
-    props: ['placeholder', 'className'],
+    props: ['value', 'placeholder', 'className', 'icon', 'disabled', 'mask'],
 
     data() {
         return {
-            value: ''
+            valueComponent: ''
         }
     },
 
     watch: {
+        valueComponent() {
+            this.$emit('updateValue', this.valueComponent)
+        },
+
         value() {
-            this.$emit('updateValue', this.value)
+            this.valueComponent = this.value
         }
     }
 }

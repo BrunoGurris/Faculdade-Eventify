@@ -13,29 +13,24 @@
                     <div class="row">
                         <div class="col-9 mb-3 mx-auto mt-4">
                             <InputText
+                                :icon="icons.mdiAccount"
                                 placeholder="Usuário"
-                                @updateValue="user = $event"
+                                @updateValue="username = $event"
                             />
                         </div>
                         <div class="col-9 mb-3 mx-auto mt-1">
                             <InputPassword 
+                                :icon="icons.mdiLock"
                                 placeholder="Senha"
                                 @updateValue="password = $event"    
                             />
                         </div>
                         <div class="col-9 d-flex mx-auto justify-content-between">
-                            <ButtonDark
-                                text="ENTRAR"
-                                height="50px"
-                            />
-                            <ButtonLight 
-                                text="CADASTRAR" 
-                                height="50px"
-                            />
+                            <button @click="login()" ref="btnLogin" type="button" class="btn btn-primary">Entrar</button>
+                            <button type="button" class="btn btn-dark">Cadastrar</button>
                         </div>
                         <div class="col-9 mx-auto mt-4 pb-3">
-                            <p class="text-center forgot">Esqueceu a senha ?</p>
-                            
+                            <p class="text-center forgot">Esqueceu a senha ?</p>    
                         </div>
                     </div>
                 </div>
@@ -45,24 +40,50 @@
 </template>
 
 <script>
-import ButtonLight from '../components/ButtonLight'
-import ButtonDark from '../components/ButtonDark'
-import InputText from '../components/InputText'
-import InputPassword from '../components/InputPassword'
+import InputText from '../../components/InputText'
+import InputPassword from '../../components/InputPassword'
+import { mdiAccount, mdiLock  } from '@mdi/js';
 
 export default {
     data() {
         return {
-            user: '',
+            username: '',
             password: '',
+
+            icons: {
+                mdiAccount : mdiAccount,
+                mdiLock: mdiLock
+            }
         }
     },
 
     components: {
-        ButtonLight,
-        ButtonDark,
         InputText,
         InputPassword
+    },
+
+    methods: {
+        async login() {
+            const formData = new FormData();
+            formData.append('username', this.username)
+            formData.append('password', this.password)
+
+            this.$refs.btnLogin.innerText = 'Entrando...'
+            this.$refs.btnLogin.disabled = true
+ 
+            await this.$api.post('/login', formData)
+            .then((response) => {
+                localStorage.setItem('_token', response.data.token)
+                this.$toastr.s('Logado com sucesso!')
+                this.$router.push('/');
+            })
+            .catch((error) => {
+                this.$toastr.e(error.response.data.message)
+            })
+
+            this.$refs.btnLogin.innerText = 'Entrar'
+            this.$refs.btnLogin.disabled = false
+        }
     }
 }
 </script>
