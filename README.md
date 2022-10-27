@@ -1,5 +1,10 @@
 # Eventify
 
+## Link do Site
+``
+https://subtle-cendol-9c8146.netlify.app/
+``
+
 ## Instalação do Projeto
 ```
 1- Verifique se vc possui o NodeJS instalado no computador: https://nodejs.org/en/
