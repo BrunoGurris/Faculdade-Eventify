@@ -22,4 +22,5 @@ http://localhost:8080/
 http://localhost:8080/login
 http://localhost:8080/register
 http://localhost:8080/events
+http://localhost:8080/anevent
 ```

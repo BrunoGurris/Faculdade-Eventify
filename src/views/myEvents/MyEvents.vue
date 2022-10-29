@@ -6,7 +6,7 @@
         </div>
         
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            <CardEvent v-for="(event, n) in events" :key="n" :event="event" />
+            <CardMyEvent v-for="(event, n) in events" :key="n" :event="event" />
         </div>
 
         <ModalAdd />
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import CardEvent from '../../components/CardEvent'
+import CardMyEvent from '../../components/CardMyEvent'
 import TempMyEvents from '../../services/tempMyEvents'
 import ModalAdd from './ModalAdd'
 
@@ -28,7 +28,7 @@ export default {
     },
 
     components: {
-        CardEvent,
+        CardMyEvent,
         ModalAdd
     },
 
