@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-//import middleware from '@/services/middleware'
+import middleware from '@/services/middleware'
 import Template from '../components/Template'
 
 import RegisterUser from '../views/RegisterUser'
 import Login from '../views/login/Login'
 import Home from '../views/Home'
-import MyEvents from '../views/myEvents/MyEvents'
-import AnEvent from '../views/myEvents/AnEvent'
+import MyEvents from '../views/my_events/MyEvents'
+import AnEvent from '../views/my_events/AnEvent'
 
 Vue.use(VueRouter)
 
@@ -15,7 +15,7 @@ const routes = [
     {
         path: '/',
         component: Template,
-        //beforeEnter: middleware.auth,
+        beforeEnter: middleware.auth,
         children: [
             {
                 path: '',
