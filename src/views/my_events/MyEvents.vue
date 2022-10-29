@@ -14,8 +14,7 @@
 </template>
 
 <script>
-import CardMyEvent from '../../components/CardMyEvent'
-import TempMyEvents from '../../services/tempMyEvents'
+import CardMyEvent from '../../components/events/CardMyEvent'
 import ModalAdd from './ModalAdd'
 
 export default {
@@ -23,7 +22,7 @@ export default {
 
     data() {
         return {
-            events: TempMyEvents,
+            events: [],
         }
     },
 
@@ -33,9 +32,23 @@ export default {
     },
 
     methods: {
+        async getEvents() {
+            await this.$api.get('/events?my=true')
+            .then((response) => {
+                this.events = response.data
+            })
+            .catch((error) => {
+                this.$toastr.e(error.response.data.message)
+            })
+        },
+
         openModalAdd() {
             this.$root.$emit('bv::show::modal', 'modalAddMyEvent')
         }
+    },
+    
+    created() {
+        this.getEvents()
     }
 }
 </script>

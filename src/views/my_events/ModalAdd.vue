@@ -174,9 +174,10 @@ export default {
             this.$refs.btnAdd.disabled = true
  
             await this.$api.post('/events/create', formData)
-            .then(() => {
+            .then((response) => {
                 this.$toastr.s('Evento criado com sucesso!')
                 this.closeModal()
+                this.$parent.events.unshift(response.data)
             })
             .catch((error) => {
                 this.$toastr.e(error.response.data.message)
