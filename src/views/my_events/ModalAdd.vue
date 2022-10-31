@@ -6,9 +6,10 @@
         <div class="d-block">
             <div class="row">
                 <div class="col-12 mb-3 mt-4">
-                    <InputText
+                    <InputForm
                         :icon="icons.mdiFileDocumentEdit"
                         placeholder="Nome"
+                        type="text"
                         @updateValue="form.name = $event"
                     />
                 </div>
@@ -19,59 +20,82 @@
                         @updateValue="form.description = $event"
                     />
                 </div>
+                <div class="col-6 mb-3">
+                    <InputForm
+                        :icon="icons.mdiCalendarMonth"
+                        :value="form.day"
+                        type="date"
+                        @updateValue="form.day = $event"
+                    />
+                </div>
+                <div class="col-6 mb-3">
+                    <InputForm
+                        :icon="icons.mdiClockTimeTen"
+                        :value="form.time"
+                        type="time"
+                        @updateValue="form.time = $event"
+                    />
+                </div>
                 <div class="col-12 mb-3">
                     <InputFile
-                        @updateValue="username = $event"
+                        :value="form.image"
+                        @updateValue="form.image = $event"
                     />
                 </div>
                 <div class="col-12 col-md-6 mb-3 mt-4">
-                    <InputText
+                    <InputForm
                         :icon="icons.mdiMap"
                         placeholder="CEP"
-                        @updateValue="form.zip_code = $event"
                         mask="#####-###"
                         :value="form.zip_code"
+                        type="text"
+                        @updateValue="form.zip_code = $event"
                     />
                 </div>
                 <div class="col-8 mb-3">
-                    <InputText
+                    <InputForm
                         :icon="icons.mdiMapMarker"
                         placeholder="Rua"
-                        @updateValue="form.street = $event"
                         disabled=true
                         :value="form.street"
+                        type="text"
+                        @updateValue="form.street = $event"
                     />
                 </div>
                 <div class="col-4 mb-3">
-                    <InputText
+                    <InputForm
                         :icon="icons.mdiNumeric0Box"
                         placeholder="Nº"
-                        @updateValue="form.number = $event"
                         :value="form.number"
+                        type="text"
+                        @updateValue="form.number = $event"
                     />
                 </div>
                 <div class="col-12 mb-3">
-                    <InputText
+                    <InputForm
                         :icon="icons.mdiMapMarker"
                         placeholder="Bairro"
                         disabled=true
                         :value="form.neighborhood"
+                        type="text"
                     />
                 </div>
                 <div class="col-9 mb-3">
-                    <InputText
+                    <InputForm
                         :icon="icons.mdiMapMarker"
                         placeholder="Cidade"
                         disabled=true
                         :value="form.city"
+                        type="text"
                     />
                 </div>
                 <div class="col-3 mb-3">
-                    <InputText
+                    <InputForm
                         :icon="icons.mdiMapMarker"
                         placeholder="UF"
                         disabled=true
                         :value="form.state"
+                        type="text"
                     />
                 </div>
             </div>
@@ -84,12 +108,13 @@
 </template>
 
 <script>
-import InputText from '../../components/InputText'
-import TextArea from '../../components/TextArea'
-import InputFile from '../../components/InputFile'
+import InputForm from '../../components/forms/InputForm'
+import TextArea from '../../components/forms/TextArea'
+import InputFile from '../../components/forms/InputFile'
 import { 
     mdiAccount, mdiLock, mdiFileDocumentEdit, mdiMap,
-    mdiCardText, mdiMapMarker, mdiNumeric0Box
+    mdiCardText, mdiMapMarker, mdiNumeric0Box, mdiClockTimeTen,
+    mdiCalendarMonth 
 } from '@mdi/js';
 
 export default {
@@ -100,13 +125,15 @@ export default {
             form: {
                 name: '',
                 description: '',
-                image: '',
+                day: '',
+                time: '',
                 zip_code: '',
                 street: '',
                 number: '',
                 neighborhood: '',
                 city: '',
                 state: '',
+                image: '',
             },
             
             icons: {
@@ -116,15 +143,17 @@ export default {
                 mdiMap: mdiMap,
                 mdiCardText: mdiCardText,
                 mdiMapMarker: mdiMapMarker,
-                mdiNumeric0Box: mdiNumeric0Box
+                mdiNumeric0Box: mdiNumeric0Box,
+                mdiClockTimeTen: mdiClockTimeTen,
+                mdiCalendarMonth: mdiCalendarMonth
             }
         }
     },
 
     components: {
-        InputText,
+        InputForm,
         TextArea,
-        InputFile
+        InputFile,
     },
 
     methods: {
@@ -132,20 +161,23 @@ export default {
             const formData = new FormData();
             formData.append('name', this.form.name)
             formData.append('description', this.form.description)
+            formData.append('date', this.form.day + ' ' + this.form.time)
             formData.append('zip_code', this.form.zip_code)
             formData.append('street', this.form.street)
             formData.append('number', this.form.number)
             formData.append('neighborhood', this.form.neighborhood)
             formData.append('city', this.form.city)
             formData.append('state', this.form.state)
+            formData.append('image', this.form.image)
 
             this.$refs.btnAdd.innerText = 'Criando...'
             this.$refs.btnAdd.disabled = true
  
             await this.$api.post('/events/create', formData)
-            .then(() => {
+            .then((response) => {
                 this.$toastr.s('Evento criado com sucesso!')
                 this.closeModal()
+                this.$parent.events.unshift(response.data)
             })
             .catch((error) => {
                 this.$toastr.e(error.response.data.message)
