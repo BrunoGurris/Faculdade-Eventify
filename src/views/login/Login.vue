@@ -12,16 +12,18 @@
 
                     <div class="row">
                         <div class="col-9 mb-3 mx-auto mt-4">
-                            <InputText
+                            <InputForm
                                 :icon="icons.mdiAccount"
                                 placeholder="Usuário"
+                                type="text"
                                 @updateValue="username = $event"
                             />
                         </div>
                         <div class="col-9 mb-3 mx-auto mt-1">
-                            <InputPassword 
+                            <InputForm 
                                 :icon="icons.mdiLock"
                                 placeholder="Senha"
+                                type="password"
                                 @updateValue="password = $event"    
                             />
                         </div>
@@ -40,8 +42,7 @@
 </template>
 
 <script>
-import InputText from '../../components/InputText'
-import InputPassword from '../../components/InputPassword'
+import InputForm from '../../components/forms/InputForm'
 import { mdiAccount, mdiLock  } from '@mdi/js';
 
 export default {
@@ -58,8 +59,7 @@ export default {
     },
 
     components: {
-        InputText,
-        InputPassword
+        InputForm,
     },
 
     methods: {

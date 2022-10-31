@@ -6,7 +6,7 @@ import Template from '../components/Template'
 import RegisterUser from '../views/RegisterUser'
 import Login from '../views/login/Login'
 import Home from '../views/Home'
-import MyEvents from '../views/my_events/MyEvents'
+import MyEvents from '../views/my_events/Index'
 import AnEvent from '../views/my_events/AnEvent'
 
 Vue.use(VueRouter)
