@@ -15,7 +15,7 @@
 
 <script>
 import CardComment from '../../components/CardComment'
-import CardSingleEvent from '../..//components/CardSingleEvent'
+// import CardSingleEvent from '../../components/CardSingleEvent'
 export default {
     name: 'SingleEvent',
 
@@ -27,7 +27,7 @@ export default {
     },
     components:{
         CardComment,
-        CardSingleEvent
+        // CardSingleEvent
     }
 
     
