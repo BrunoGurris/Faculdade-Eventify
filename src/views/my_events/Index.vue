@@ -6,16 +6,18 @@
         </div>
         
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            <CardMyEvent v-for="(event, n) in events" :key="n" :event="event" />
+            <CardEvent v-for="(event, n) in events" :key="n" :event="event" />
         </div>
 
         <ModalAdd />
+        <ModalDelete :event="modalDelete.event" />
     </div>
 </template>
 
 <script>
-import CardMyEvent from '../../components/events/CardMyEvent'
+import CardEvent from './CardEvent'
 import ModalAdd from './ModalAdd'
+import ModalDelete from './ModalDelete'
 
 export default {
     name: 'Home',
@@ -23,12 +25,17 @@ export default {
     data() {
         return {
             events: [],
+
+            modalDelete: {
+                event: ''
+            }
         }
     },
 
     components: {
-        CardMyEvent,
-        ModalAdd
+        CardEvent,
+        ModalAdd,
+        ModalDelete
     },
 
     methods: {
@@ -44,6 +51,11 @@ export default {
 
         openModalAdd() {
             this.$root.$emit('bv::show::modal', 'modalAddMyEvent')
+        },
+
+        openModalDelete(event) {
+            this.modalDelete.event = event
+            this.$root.$emit('bv::show::modal', 'modalDelete')
         }
     },
     

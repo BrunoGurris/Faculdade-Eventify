@@ -11,6 +11,7 @@
             </div>
             <div class="card-footer text-right">
                 <button type="button" class="btn btn-primary">Detalhes</button>
+                <button @click="openModalDelete(event)" type="button" class="btn btn-outline-danger ms-3">Excluir</button>
             </div>
         </div>
     </div>
@@ -18,11 +19,15 @@
 
 <script>
 export default {
-    name: 'CardMyEvent',
+    name: 'CardEvent',
 
     props: ['event'],
 
     methods: {
+        openModalDelete(event) {
+            this.$parent.openModalDelete(event)
+        },
+
         formatDate(value) {
             var date = new Date(value)
             return ("0" + date.getDate()).slice(-2) + '/' + ("0" + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' as ' + ("0" + date.getHours()).slice(-2) + ':' + ("0" + date.getMinutes()).slice(-2)
