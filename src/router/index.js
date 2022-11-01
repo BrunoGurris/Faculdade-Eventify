@@ -4,7 +4,7 @@ import middleware from '@/services/middleware'
 import Template from '../components/Template'
 
 import RegisterUser from '../views/RegisterUser'
-import Login from '../views/login/Login'
+import Login from '../views/login/Index'
 import Home from '../views/Home'
 import MyEvents from '../views/my_events/Index'
 import AnEvent from '../views/my_events/AnEvent'

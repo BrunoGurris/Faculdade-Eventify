@@ -1,11 +1,11 @@
 <template>
-    <div class="input-group" :class="className">
+    <div class="input-group">
         <span class="input-group-text">
             <svg style="width:24px; height:24px">
                 <path :d="icon" />
             </svg>
         </span>
-        <input v-model="valueComponent" v-mask="mask" :type="type" class="form-control" :placeholder="placeholder" :disabled="disabled">
+        <input v-model="valueComponent" v-mask="mask" :type="type" :class="className" class="form-control" :placeholder="placeholder" :disabled="disabled">
     </div>
 </template>
 
