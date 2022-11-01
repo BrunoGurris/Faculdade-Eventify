@@ -3,9 +3,8 @@ import VueRouter from 'vue-router'
 import middleware from '@/services/middleware'
 import Template from '../components/Template'
 
-import RegisterUser from '../views/RegisterUser'
 import Login from '../views/login/Index'
-import Home from '../views/Home'
+import Home from '../views/home/Index'
 import MyEvents from '../views/my_events/Index'
 import AnEvent from '../views/my_events/AnEvent'
 
@@ -42,13 +41,6 @@ const routes = [
         name: 'Login',
         component: Login,
     },
-    {
-        path: '/register',
-        name: 'RegisterUser',
-        component: RegisterUser,
-    },
-    
-
 ]
 
 const router = new VueRouter({
