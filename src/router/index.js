@@ -6,7 +6,7 @@ import Template from '../components/Template'
 import Login from '../views/login/Index'
 import Home from '../views/home/Index'
 import MyEvents from '../views/my_events/Index'
-import AnEvent from '../views/my_events/AnEvent'
+import Event from '../views/event/Index'
 
 Vue.use(VueRouter)
 
@@ -20,18 +20,16 @@ const routes = [
                 path: '',
                 name: 'Home',
                 component: Home,
-                meta: { title: 'Eventify - Todos Eventos' }
             },
             {
                 path: 'events',
                 name: 'MyEvents',
                 component: MyEvents,
-                meta: { title: 'Eventify - Meus Eventos' }
             },
             {
-                path: 'anevent',
-                name: 'AnEvent',
-                component: AnEvent,
+                path: 'events/:id',
+                name: 'Event',
+                component: Event,
             },
             
         ]

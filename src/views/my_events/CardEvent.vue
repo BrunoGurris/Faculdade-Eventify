@@ -1,7 +1,7 @@
 <template>
     <div class="col">
         <div class="card h-100">
-            <img :src="$store.state.api_images + event.image" class="card-img-top" height="250">
+            <img v-if="event.image" :src="$store.state.api_images + event.image" class="card-img-top" height="250">
             <div class="card-body">
                 <h5 class="card-title">{{ event.name }}</h5>
                 <p class="card-text m-0 mt-5"><b>Horário: </b>{{ formatDate(event.date) }}</p>
@@ -10,7 +10,7 @@
                 <p class="card-text overflow-auto border border-light rounded" style="max-height: 200px;">{{ event.description }}</p>
             </div>
             <div class="card-footer text-right">
-                <button type="button" class="btn btn-dark">Detalhes</button>
+                <button @click="goToDetails(event)" type="button" class="btn btn-dark">Detalhes</button>
                 <button @click="openModalEdit(event)" type="button" class="btn btn-primary ms-3">Editar</button>
                 <button @click="openModalDelete(event)" type="button" class="btn btn-outline-danger ms-3">Excluir</button>
             </div>
@@ -25,6 +25,10 @@ export default {
     props: ['event'],
 
     methods: {
+        goToDetails(event) {
+            this.$router.push({ path: '/events/' + event.id })
+        },
+
         openModalEdit(event) {
             this.$parent.openModalEdit(event)
         },
