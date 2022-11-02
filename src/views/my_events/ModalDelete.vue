@@ -25,7 +25,7 @@ export default {
             this.$refs.btnDelete.disabled = true
  
             await this.$api.delete('/events/delete/' + this.event.id)
-            .then((response) => {
+            .then(() => {
                 this.$parent.getEvents()
                 this.$toastr.s('Evento excluido com sucesso!')
                 this.closeModal()
