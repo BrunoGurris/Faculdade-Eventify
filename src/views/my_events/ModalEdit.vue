@@ -1,7 +1,7 @@
 <template>
     <b-modal id="modalEdit" centered>
         <template #modal-title>
-            Criar Evento
+            Editar Evento
         </template>
         <div class="d-block">
             <div class="row">
@@ -104,7 +104,7 @@
         </div>
         <template #modal-footer>
             <button @click="closeModal()" type="button" class="btn btn-secondary">Fechar</button>
-            <button @click="addEvent()" ref="btnAdd" type="button" class="btn btn-primary">Criar</button>
+            <button @click="addEvent()" ref="btnAdd" type="button" class="btn btn-primary">Editar</button>
         </template>
     </b-modal>
 </template>

@@ -81,7 +81,7 @@ export default {
             .then((response) => {
                 localStorage.setItem('_token', response.data.token)
                 this.$toastr.s('Logado com sucesso!')
-                this.$router.push('/');
+                window.location.href = "/events"
             })
             .catch((error) => {
                 this.$toastr.e(error.response.data.message)
