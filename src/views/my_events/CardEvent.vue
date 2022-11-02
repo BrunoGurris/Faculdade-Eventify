@@ -10,7 +10,8 @@
                 <p class="card-text overflow-auto border border-light rounded" style="max-height: 200px;">{{ event.description }}</p>
             </div>
             <div class="card-footer text-right">
-                <button type="button" class="btn btn-primary">Detalhes</button>
+                <button type="button" class="btn btn-dark">Detalhes</button>
+                <button @click="openModalEdit(event)" type="button" class="btn btn-primary ms-3">Editar</button>
                 <button @click="openModalDelete(event)" type="button" class="btn btn-outline-danger ms-3">Excluir</button>
             </div>
         </div>
@@ -24,6 +25,10 @@ export default {
     props: ['event'],
 
     methods: {
+        openModalEdit(event) {
+            this.$parent.openModalEdit(event)
+        },
+
         openModalDelete(event) {
             this.$parent.openModalDelete(event)
         },
