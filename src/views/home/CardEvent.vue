@@ -10,7 +10,7 @@
                 <p class="card-text overflow-auto border border-light rounded" style="max-height: 200px;">{{ event.description }}</p>
             </div>
             <div class="card-footer text-right">
-                <button type="button" class="btn btn-primary">Detalhes</button>
+                <button type="button" class="btn btn-primary">Participar</button>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    name: 'CardMyEvent',
+    name: 'CardEvent',
 
     props: ['event'],
 
