@@ -14,12 +14,3 @@ https://subtle-cendol-9c8146.netlify.app/
 5- Após o comando ter finalizado, execute o comando: yarn serve, para rodar o projeto
 6- No seu navegador, entre no link: http://localhost:8080/
 ```
-
-## Paginas
-
-```
-http://localhost:8080/
-http://localhost:8080/login
-http://localhost:8080/register
-http://localhost:8080/events
-```

@@ -3,10 +3,10 @@ import VueRouter from 'vue-router'
 import middleware from '@/services/middleware'
 import Template from '../components/Template'
 
-import RegisterUser from '../views/RegisterUser'
-import Login from '../views/login/Login'
-import Home from '../views/Home'
-import MyEvents from '../views/myEvents/MyEvents'
+import Login from '../views/login/Index'
+import Home from '../views/home/Index'
+import MyEvents from '../views/my_events/Index'
+import Event from '../views/event/Index'
 
 Vue.use(VueRouter)
 
@@ -20,28 +20,18 @@ const routes = [
                 path: '',
                 name: 'Home',
                 component: Home,
-                meta: { title: 'Eventify - Todos Eventos' }
             },
             {
                 path: 'events',
                 name: 'MyEvents',
                 component: MyEvents,
-                meta: { title: 'Eventify - Meus Eventos' }
             },
-            // {
-            //     path: 'dashboard',
-            //     beforeEnter: middleware.isClient,
-            //     component: resolve => require(['./components/pages/dashboard/Dashboard.vue'], resolve),
-            //     meta: {
-            //         title: 'Dashboard',
-            //         breadcrumb: [
-            //             {
-            //                 html:'<i class="ti-home"></i> Dashboard',
-            //                 href: '/dashboard',
-            //             }
-            //         ]
-            //     }
-            // },
+            {
+                path: 'events/:id',
+                name: 'Event',
+                component: Event,
+            },
+            
         ]
     },
     {
@@ -49,11 +39,6 @@ const routes = [
         name: 'Login',
         component: Login,
     },
-    {
-        path: '/register',
-        name: 'RegisterUser',
-        component: RegisterUser,
-    }
 ]
 
 const router = new VueRouter({
