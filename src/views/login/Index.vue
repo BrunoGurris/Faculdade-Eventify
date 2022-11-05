@@ -25,7 +25,7 @@
                                     :icon="icons.mdiLock"
                                     placeholder="Senha"
                                     type="password"
-                                    @updateValue="password = $event"    
+                                    @updateValue="password = $event" 
                                 />
                             </div>
                             <div class="col-9 d-flex mx-auto justify-content-between">

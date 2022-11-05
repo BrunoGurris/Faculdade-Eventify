@@ -6,11 +6,10 @@
                 <h5 class="card-title">{{ event.name }}</h5>
                 <p class="card-text m-0 mt-5"><b>Horário: </b>{{ formatDate(event.date) }}</p>
                 <p class="card-text m-0"><b>Endereço: </b><i>{{ event.street }}, {{ event.number }}, {{ event.neighborhood }} - CEP: {{ event.zip_code }} - {{ event.city }}/{{ event.state }}</i></p>
-                <p class="card-text m-0 mt-4"><b>Descrição: </b></p>
-                <p class="card-text overflow-auto border border-light rounded" style="max-height: 200px;">{{ event.description }}</p>
             </div>
             <div class="card-footer text-right">
-                <button type="button" class="btn btn-primary">Participar</button>
+                <button @click="goToDetails(event)" type="button" class="btn btn-dark me-3">Detalhes</button>
+                <button type="button" class="btn btn-success" disabled>Participar</button>
             </div>
         </div>
     </div>
@@ -23,6 +22,10 @@ export default {
     props: ['event'],
 
     methods: {
+        goToDetails(event) {
+            this.$router.push({ path: '/events/' + event.id })
+        },
+
         formatDate(value) {
             var date = new Date(value)
             return ("0" + date.getDate()).slice(-2) + '/' + ("0" + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' as ' + ("0" + date.getHours()).slice(-2) + ':' + ("0" + date.getMinutes()).slice(-2)
