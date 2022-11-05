@@ -17,9 +17,10 @@
                 </div>
 
                 <div>
-                    <div id="user-header-template" class="rounded-circle mt-2 me-5 text-center">
-                        <v-icon size="30" color="white" class="mt-3">{{ icons.mdiAccountOutline }}</v-icon>
-                    </div>
+                    <b-dropdown ref="dropdown" dropleft variant="none" :html="`<button id='user-header-template' class='rounded-circle mt-2 text-center text-white'>U</button>`">
+                        <b-dropdown-item-button>Perfil</b-dropdown-item-button>
+                        <b-dropdown-item-button @click="logout()">Sair</b-dropdown-item-button>
+                    </b-dropdown>
                 </div>
             </div>
         </div>
@@ -74,7 +75,18 @@ export default {
     methods: {
         changeRoute(path) {
             this.$router.push(path)
-        }
+        },
+
+        async logout() {
+            await this.$api.get('/logout')
+            .then(() => {
+                localStorage.setItem('_token', '')
+                this.$router.push('/login')
+            })
+            .catch((error) => {
+                this.$toastr.e(error.response.data.message)
+            })
+        },
     },
 
     watch: {

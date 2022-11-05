@@ -6,12 +6,10 @@
                 <h5 class="card-title">{{ event.name }}</h5>
                 <p class="card-text m-0 mt-5"><b>Horário: </b>{{ formatDate(event.date) }}</p>
                 <p class="card-text m-0"><b>Endereço: </b><i>{{ event.street }}, {{ event.number }}, {{ event.neighborhood }} - CEP: {{ event.zip_code }} - {{ event.city }}/{{ event.state }}</i></p>
-                <p class="card-text m-0 mt-4"><b>Descrição: </b></p>
-                <p class="card-text overflow-auto border border-light rounded" style="max-height: 200px;">{{ event.description }}</p>
             </div>
             <div class="card-footer text-right">
                 <button @click="goToDetails(event)" type="button" class="btn btn-dark">Detalhes</button>
-                <button @click="openModalEdit(event)" type="button" class="btn btn-primary ms-3">Editar</button>
+                <button type="button" class="btn btn-primary ms-3" disabled>Editar</button>
                 <button @click="openModalDelete(event)" type="button" class="btn btn-outline-danger ms-3">Excluir</button>
             </div>
         </div>
