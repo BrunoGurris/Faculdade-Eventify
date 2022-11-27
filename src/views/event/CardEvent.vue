@@ -1,6 +1,6 @@
 <template>
     <div class="card mb-3">
-        <img :src="$store.state.api_images + event.image" class="card-img-top" height="400">
+        <img :src="$store.state.api_images + event.image" class="card-img-top" height="500">
         <div class="card-body">
             <h5 class="card-title">{{ event.name }}</h5>
             <p class="card-text mt-5">{{ event.description }}</p>
