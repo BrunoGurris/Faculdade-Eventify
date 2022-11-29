@@ -4,12 +4,14 @@
 
         <div class="row mt-5">
             <div class="col-12">
-                <TextArea
-                    :icon="icons.mdiCardText "
-                    placeholder="Escreva seu comentário"
-                    @updateValue="form.message = $event"
-                    @click="comment()"
-                />
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <svg style="width:24px; height:24px">
+                            <path :d="icons.mdiCardText" />
+                        </svg>
+                    </span>
+                    <textarea v-model="form.message" class="form-control" rows="5" placeholder="Escreva seu comentário" style="resize: none"></textarea>
+                </div>
             </div>
             <div class="col-12 d-flex justify-content-end">
                 <button @click="comment()" type="button" class="btn btn-primary mt-2">Comentar</button>
@@ -38,7 +40,6 @@
 <script>
 import CardEvent from './CardEvent'
 import Comment from './Comment'
-import TextArea from '../../components/forms/TextArea'
 import { mdiCardText } from '@mdi/js';
 import NoList from '../../components/NoList'
 
@@ -63,7 +64,6 @@ export default {
     components: {
         CardEvent,
         Comment,
-        TextArea,
         NoList
     },
 
