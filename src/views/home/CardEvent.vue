@@ -9,7 +9,8 @@
             </div>
             <div class="card-footer text-right">
                 <button @click="goToDetails(event)" type="button" class="btn btn-dark me-3">Detalhes</button>
-                <button type="button" class="btn btn-success" disabled>Participar</button>
+                <button v-if="event.participate" type="button" class="btn btn-danger">Desparticipar</button>
+                <button v-else @click="participate()" type="button" class="btn btn-success">Participar</button>
             </div>
         </div>
     </div>
@@ -24,6 +25,17 @@ export default {
     methods: {
         goToDetails(event) {
             this.$router.push({ path: '/events/' + event.id })
+        },
+
+        async participate() {
+            await this.$api.put('/events/'+ this.event.id + '/participate')
+            .then((response) => {
+                this.$parent.getEvents()
+                this.$toastr.s('Agora você esta participando do evento: ' + response.data.name)
+            })
+            .catch((error) => {
+                this.$toastr.e(error.response.data.message)
+            })
         },
 
         formatDate(value) {
