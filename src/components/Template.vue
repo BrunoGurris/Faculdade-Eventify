@@ -18,7 +18,7 @@
 
                 <div>
                     <b-dropdown ref="dropdown" dropleft variant="none" :html="`<button id='user-header-template' class='rounded-circle mt-2 text-center text-white'>U</button>`">
-                        <b-dropdown-item-button>Perfil</b-dropdown-item-button>
+                        <!-- <b-dropdown-item-button>Perfil</b-dropdown-item-button> -->
                         <b-dropdown-item-button @click="logout()">Sair</b-dropdown-item-button>
                     </b-dropdown>
                 </div>
@@ -104,7 +104,7 @@ export default {
 
     position: fixed;
     background: #131E2F;
-    z-index: 9999;
+    z-index: 10;
 }
 
 #menu-template{
@@ -116,7 +116,7 @@ export default {
 
     position: fixed;
     background: #01A5B1;
-    z-index: 9999;
+    z-index: 10;
 
 }
 
