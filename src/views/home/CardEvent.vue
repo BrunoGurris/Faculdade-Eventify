@@ -9,7 +9,7 @@
             </div>
             <div class="card-footer text-right">
                 <button @click="goToDetails(event)" type="button" class="btn btn-dark me-3">Detalhes</button>
-                <button v-if="event.participate" type="button" class="btn btn-danger">Desparticipar</button>
+                <button v-if="event.participate" @click="departicipate()" type="button" class="btn btn-danger">Desparticipar</button>
                 <button v-else @click="participate()" type="button" class="btn btn-success">Participar</button>
             </div>
         </div>
@@ -32,6 +32,17 @@ export default {
             .then((response) => {
                 this.$parent.getEvents()
                 this.$toastr.s('Agora você esta participando do evento: ' + response.data.name)
+            })
+            .catch((error) => {
+                this.$toastr.e(error.response.data.message)
+            })
+        },
+
+        async departicipate() {
+            await this.$api.put('/events/'+ this.event.id + '/departicipate')
+            .then((response) => {
+                this.$parent.getEvents()
+                this.$toastr.s('Você não esta mais participando do evento: ' + response.data.name)
             })
             .catch((error) => {
                 this.$toastr.e(error.response.data.message)
