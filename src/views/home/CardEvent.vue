@@ -6,6 +6,7 @@
                 <h5 class="card-title">{{ event.name }}</h5>
                 <p class="card-text m-0 mt-5"><b>Horário: </b>{{ formatDate(event.date) }}</p>
                 <p class="card-text m-0"><b>Endereço: </b><i>{{ event.street }}, {{ event.number }}, {{ event.neighborhood }} - CEP: {{ event.zip_code }} - {{ event.city }}/{{ event.state }}</i></p>
+                <p class="text-end m-0 mt-2">Participantes: {{ event.count_participants }}</p>
             </div>
             <div class="card-footer text-right">
                 <button @click="goToDetails(event)" type="button" class="btn btn-dark me-3">Detalhes</button>
@@ -42,7 +43,7 @@ export default {
             await this.$api.put('/events/'+ this.event.id + '/departicipate')
             .then((response) => {
                 this.$parent.getEvents()
-                this.$toastr.s('Você não esta mais participando do evento: ' + response.data.name)
+                this.$toastr.w('Você não esta mais participando do evento: ' + response.data.name)
             })
             .catch((error) => {
                 this.$toastr.e(error.response.data.message)

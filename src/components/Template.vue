@@ -104,7 +104,7 @@ export default {
 
     position: fixed;
     background: #131E2F;
-    z-index: 2;
+    z-index: 9999;
 }
 
 #menu-template{
@@ -116,7 +116,7 @@ export default {
 
     position: fixed;
     background: #01A5B1;
-    z-index: 2;
+    z-index: 9999;
 
 }
 
