@@ -3,7 +3,8 @@
         <img :src="$store.state.api_images + event.image" class="card-img-top" height="500">
         <div class="card-body">
             <div>
-                <b-form-rating @change="rating()" variant="success" v-model="rating_me" stars="10"></b-form-rating>
+                <b-form-rating @change="rating()" v-if="event.participate" variant="success" v-model="rating_me" stars="10"></b-form-rating>
+                <b-form-rating v-else variant="success" v-model="rating_me" stars="10" disabled></b-form-rating>
                 <p class="text-end mt-2">Média de avaliação: {{ event.rating }}</p>
             </div>
 

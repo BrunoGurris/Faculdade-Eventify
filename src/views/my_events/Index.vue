@@ -91,6 +91,7 @@ export default {
     
     created() {
         this.getEvents()
+        this.isLoaded = false
     }
 }
 </script>

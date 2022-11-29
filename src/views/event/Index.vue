@@ -17,6 +17,18 @@
         </div>
 
         <h5 class="mt-5">Comentários</h5>
+
+        <div class="row">
+            <div class="col-12">
+                <NoList 
+                    :array="event.comments"
+                    text="Este evento não possui comentários!"
+                    textLoad="Carregando comentários..."
+                    :isLoaded="isLoaded"
+                />
+            </div>
+        </div>
+
         <div class="row">
             <Comment v-for="(comment, n) in event.comments" :key="n" :comment="comment" />
         </div>
@@ -28,6 +40,7 @@ import CardEvent from './CardEvent'
 import Comment from './Comment'
 import TextArea from '../../components/forms/TextArea'
 import { mdiCardText } from '@mdi/js';
+import NoList from '../../components/NoList'
 
 export default {
     name: 'Event',
@@ -35,6 +48,7 @@ export default {
     data() {
         return {
             event: {},
+            isLoaded: false,
 
             form: {
                 message: ''
@@ -49,7 +63,8 @@ export default {
     components: {
         CardEvent,
         Comment,
-        TextArea
+        TextArea,
+        NoList
     },
 
     methods: {
@@ -81,6 +96,7 @@ export default {
 
     created() {
         this.getEvent()
+        this.isLoaded = true
     }
 }
 </script>
